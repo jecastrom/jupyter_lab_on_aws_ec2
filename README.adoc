@@ -73,11 +73,11 @@ aws ec2 create-key-pair \
 --key-name jupyter_test-key \
 --query "KeyMaterial" \
 --output text > jupyter_test_key.pem
-´``
+```
 
 To change the permissions of the .pem file we just created:
 
-´``
+```
 chmod 400 jupyter_test_key.pem
 ```
 
