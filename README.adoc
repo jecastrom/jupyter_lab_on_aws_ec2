@@ -70,7 +70,7 @@ To be able to SSH to the instance we need to create a key pair and store it on a
 
 ```
 aws ec2 create-key-pair \
---key-name jupyter_test-key \
+--key-name c \
 --query "KeyMaterial" \
 --output text > jupyter_test_key.pem
 ```
@@ -113,7 +113,19 @@ aws ec2 authorize-security-group-ingress \
 --group-id $jp_sg \
 --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=0.0.0.0/0}] IpProtocol=tcp,FromPort=8888,ToPort=8888,IpRanges=[{CidrIp=0.0.0.0/0}]
 ```
+
+=== Selecting the AMI
+
+```
+aws ec2 describe—images —owners amazon \
+-—filters "Name=name,Values=amzn2-ami-hvm-2.0 ????????.?-x86_64-gp2" "Name=state,Values=available" \
+--query "reverse(sort_by(lmages, &CreationDate))[:1].Imageld"
+```
 === Provisioning the EC2
+
+```
+aws ec2 run-instances --image-id ami-0d527b8c289b4af7f --instance-type t2.micro --subnet-id subnet-0e62e05ae45da43db --count 1 --security-group-id $jp_sg --key-pair create-key-pair
+```
 
 === Connecting to the EC2 Instance via SSH
 
