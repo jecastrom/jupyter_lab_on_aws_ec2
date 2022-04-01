@@ -110,8 +110,7 @@ We are going to add port 22 so we can SSH to the instance and port 8888 to acces
 ```
 aws ec2 authorize-security-group-ingress \
 --group-id $jp_sg \
---ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=0.0.0.0/0}] \
-IpProtocol=tcp,FromPort=8888,ToPort=8888,IpRanges=[{CidrIp=0.0.0.0/0}]
+--ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=0.0.0.0/0}] IpProtocol=tcp,FromPort=8888,ToPort=8888,IpRanges=[{CidrIp=0.0.0.0/0}]
 ```
 === Provisioning the EC2
 
