@@ -64,7 +64,39 @@ toc::[]
 
 == Provisioning the EC2 Instance
 
-=== Downloading the key pair
+=== Creating the key pair
+
+To be able to SSH to the instance we need to create a key pair and store it on a file.
+
+```
+aws ec2 create-key-pair \
+--key-name jupyter_test-key \
+--query "KeyMaterial" \
+--output text > jupyter_test_key.pem
+´``
+
+To change the permissions of the .pem file we just created:
+
+´``
+chmod 400 jupyter_test_key.pem
+```
+
+=== Creating a new Security Group
+
+To create a new security group, we need to find out first the vpc-id in our region. Instead of just making the query, we are going to save the result on a variable called `myvpc_id` and use it to create the security group
+
+```
+myvpc_id=$(aws ec2 describe-vpcs \
+--query "Vpcs[].{vpcid:VpcId}" \
+--output text)
+
+
+
+```
+aws ec2 create-security-group --group-name jupyter-sg --description "Jupyter Lab Instance" --vpc-id
+```
+
+
 
 === Provisioning the EC2
 
