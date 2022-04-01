@@ -91,9 +91,13 @@ myvpc_id=$(aws ec2 describe-vpcs \
 --output text)
 ```
 
+Now we can create our new security group using the variable containing the vpc-id
 
 ```
-aws ec2 create-security-group --group-name jupyter-sg --description "Jupyter Lab Instance" --vpc-id
+aws ec2 create-security-group \
+--group-name jupyter-sg \
+--description "Jupyter Lab Instance" \
+--vpc-id $myvpc_id
 ```
 
 
