@@ -68,7 +68,7 @@ toc::[]
 
 === Provisioning the EC2
 
-=== Connecting via SSH to the EC2
+=== Connecting to the EC2 Instance via SSH
 
 == Installing Jupyter Lab
 
