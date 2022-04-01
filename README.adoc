@@ -89,7 +89,7 @@ To create a new security group, we need to find out first the vpc-id in our regi
 myvpc_id=$(aws ec2 describe-vpcs \
 --query "Vpcs[].{vpcid:VpcId}" \
 --output text)
-
+```
 
 
 ```
