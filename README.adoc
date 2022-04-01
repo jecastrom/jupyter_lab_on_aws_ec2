@@ -100,7 +100,7 @@ jp_sc=$(aws ec2 create-security-group \
 --group-name jupyter-sg \
 --description "Jupyter Lab Instance" \
 --vpc-id $myvpc_id \
---output text
+--output text)
 ```
 
 == Adding inbound rules to the security group
