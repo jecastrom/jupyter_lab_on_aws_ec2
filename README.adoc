@@ -62,7 +62,7 @@ toc::[]
 {description}
 
 
-== Steps to Provisioning the EC2 Instance
+== Provisioning the EC2 Instance
 
 === Creating the key pair
 
