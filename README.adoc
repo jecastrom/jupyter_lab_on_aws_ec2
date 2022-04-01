@@ -108,7 +108,7 @@ jp_sg=$(aws ec2 create-security-group \
 We are going to add port 22 so we can SSH to the instance and port 8888 to access the jupyter lab from the internet.
 
 ```
-aws ec2 authorize-security-group-ingress --group-id $jp_sg --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $jp_sg [--protocol tcp --port 22 --cidr 0.0.0.0/0, --protocol tcp --port 8888 --cidr 0.0.0.0/0]
 ```
 === Provisioning the EC2
 
