@@ -81,6 +81,8 @@ To change the permissions of the .pem file we just created:
 chmod 400 jupyter_test_key.pem
 ```
 
+
+
 === Creating a new Security Group
 
 To create a new security group, we need to find out first the vpc-id in our region. Instead of just making the query, we are going to save the result on a variable called `myvpc_id` and use it to create the security group
@@ -94,13 +96,19 @@ myvpc_id=$(aws ec2 describe-vpcs \
 Now we can create our new security group using the variable containing the vpc-id
 
 ```
-aws ec2 create-security-group \
+jp_sc=$(aws ec2 create-security-group \
 --group-name jupyter-sg \
 --description "Jupyter Lab Instance" \
---vpc-id $myvpc_id
+--vpc-id $myvpc_id \
+--output text
 ```
 
+== Adding inbound rules to the security group
 
+We are going to add port 22 so we can SSH to the instance and port 8888 to access the jupyter lab from the internet.
+
+```
+aws ec2 authorize-security-group-ingress
 
 === Provisioning the EC2
 
