@@ -93,10 +93,10 @@ myvpc_id=$(aws ec2 describe-vpcs \
 --output text)
 ```
 
-Now we can create our new security group using the variable containing the vpc-id
+Now we can create our new security group using the variable containing the vpc-id, at the same time we are going to save the output, the Security Group ID which we will need to add the ingress rules to our security group
 
 ```
-jp_sc=$(aws ec2 create-security-group \
+jp_sg=$(aws ec2 create-security-group \
 --group-name jupyter-sg \
 --description "Jupyter Lab Instance" \
 --vpc-id $myvpc_id \
