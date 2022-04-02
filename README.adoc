@@ -140,6 +140,10 @@ aws ec2 describe-instances ---filters "my_jupyterlab" --query 'Reservations[].In
 ```
 === Connecting to the EC2 Instance via SSH
 
+```
+ssh -i "jupyter_test_key.pem" ubuntu@ec2-3-70-240-238.eu-central-1.compute.amazonaws.com
+```
+
 == Installing Jupyter Lab
 
 === Run Jupyter Lab in the backgrounds
