@@ -146,9 +146,74 @@ ssh -i "jupyter_test_key.pem" ubuntu@ec2-3-70-240-238.eu-central-1.compute.amazo
 
 == Installing Jupyter Lab
 
+Running updates:
+```
+sudo apt-get update
+```
+
+Checking the version of Python which it comes already installed in this version of Linux:
+
+```
+python3 -V
+```
+
+Installing PIP3, this is the package manager
+
+```
+sudo apt-get install python3-pip
+```
+
+Installing Python Virtual Environment: We create a virtual environment where we install the Jupyter server
+
+````
+sudo apt-get install python3-venv
+````
+
+Creating the virtual environment: we use the command `python3 -m venv` then we give a name to our virtual environment, here I will name it `jupyterlab-venv`
+
+```
+python3 -m venv jupyterlab-venv
+```
+
+Activating out virtual environment:
+
+```
+source jupyterlab-venv/bin/activate
+
+```
+
+Installing Jupyter Lab:
+
+```
+pip3 install jupyterlab
+```
+
+Generating the Jupyter configuration file. The output of this command is:
+`Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py` giving us the path where the config file will sit. Here we can configure all the variables and parameters.
+
+```
+jupyter notebook --generate-config
+```
+Setting the Jupyter Lab password:
+
+```
+jupyter notebook password
+```
+
+
 === Run Jupyter Lab in the backgrounds
 
+Running Jupyter Lab in the background: nohup will make jupyter lab run on the background even after we logout the terminal session.
 
+```
+nohup jupyter-lab --ip 0.0.0.0 --no-browser --allow-root &
+```
+
+Now we can go to our browse and log in to our Jupyter Lab:
+
+```
+http://ec2-3-70-240-238.eu-central-1.compute.amazonaws.com:8888
+```
 
 
 ====
