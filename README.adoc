@@ -104,7 +104,7 @@ jp_sg=$(aws ec2 create-security-group \
 --output text)
 ```
 
-== Adding inbound rules to the security group
+=== Adding inbound rules to the security group
 
 We are going to add port 22 so we can SSH to the instance and port 8888 to access the jupyter lab from the internet.
 
