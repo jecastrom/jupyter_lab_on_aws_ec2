@@ -227,7 +227,7 @@ image::https://user-images.githubusercontent.com/63274055/161400944-8d13edb1-6f7
 ''''
 ====
 
-
+== Setting Up Jupyter-Lab on a Docker Container
 
 
 xref:Lab-xxxx[Top Section]
