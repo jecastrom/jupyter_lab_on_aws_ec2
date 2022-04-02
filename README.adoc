@@ -125,7 +125,13 @@ aws ec2 describe—images —owners amazon --filters "Name=name,Values=amzn2-ami
 === Provisioning the EC2
 
 ```
-aws ec2 run-instances --image-id ami-0d527b8c289b4af7f --instance-type t2.micro --subnet-id subnet-0e62e05ae45da43db --count 1 --security-group-id $jp_sg --key-pair jupyter_test_key
+aws ec2 run-instances \
+--image-id ami-0d527b8c289b4af7f \
+--instance-type t2.micro \
+--subnet-id subnet-0e62e05ae45da43db ß
+--count 1 \
+--security-group-id $jp_sg \
+--key-pair jupyter_test_key
 ```
 
 === Connecting to the EC2 Instance via SSH
