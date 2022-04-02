@@ -70,7 +70,7 @@ To be able to SSH to the instance we need to create a key pair and store it on a
 
 ```
 aws ec2 create-key-pair \
---key-name c \
+--key-name jupyter_test_key \
 --query "KeyMaterial" \
 --output text > jupyter_test_key.pem
 ```
