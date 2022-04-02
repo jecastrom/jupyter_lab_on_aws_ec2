@@ -133,7 +133,11 @@ aws ec2 run-instances \
 --security-group-id $jp_sg \
 --key-name jupyter_test-key
 ```
+== Query the public DNS name of the instance
 
+```
+aws ec2 describe-instances ---filters "my_jupyterlab" --query 'Reservations[].Instances[].PublicDnsName'
+```
 === Connecting to the EC2 Instance via SSH
 
 == Installing Jupyter Lab
