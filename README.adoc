@@ -147,6 +147,7 @@ ssh -i "jupyter_test_key.pem" ubuntu@ec2-3-70-240-238.eu-central-1.compute.amazo
 == Installing Jupyter Lab
 
 Running updates:
+
 ```
 sudo apt-get update
 ```
@@ -165,9 +166,9 @@ sudo apt-get install python3-pip
 
 Installing Python Virtual Environment: We create a virtual environment where we install the Jupyter server
 
-````
+```
 sudo apt-get install python3-venv
-````
+```
 
 Creating the virtual environment: we use the command `python3 -m venv` then we give a name to our virtual environment, here I will name it `jupyterlab-venv`
 
