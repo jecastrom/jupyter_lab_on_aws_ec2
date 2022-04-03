@@ -70,15 +70,15 @@ To be able to SSH to the instance we need to create a key pair and store it on a
 
 ```
 aws ec2 create-key-pair \
---key-name jupyter_test_key \
+--key-name jupyter_key \
 --query "KeyMaterial" \
---output text > jupyter_test_key.pem
+--output text > jupyter_key.pem
 ```
 
 To change the permissions of the .pem file we just created:
 
 ```
-chmod 400 jupyter_test_key.pem
+chmod 400 jupyter_key.pem
 ```
 Here `chmod 400` gives only the read access to the owner and no other permissions are given to groups and others.
 
